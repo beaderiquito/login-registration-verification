@@ -29,8 +29,8 @@ export class AuthService {
   }
 
   registerSuccessfulLogin(username: string){
-    localStorage.setItem('currentUser', JSON.stringify(username));
-    this.router.navigateByUrl('');
+    localStorage.setItem('currentUser', username);
+    this.router.navigateByUrl('/');
   }
 
 }
