@@ -29,8 +29,19 @@ export class AuthService {
   }
 
   registerSuccessfulLogin(username: string){
-    localStorage.setItem('currentUser', username);
+    const daysBeforeExpiration = 3;
+    const inMilliseconds = daysBeforeExpiration * 24 * 60 * 60 * 1000;
+    this.setExpiryDate('currentUser', username, inMilliseconds);
     this.router.navigateByUrl('/');
+  }
+
+  setExpiryDate(key:string, value:string, ttl:number){
+    const now = new Date();
+    const item = {
+      value: value,
+      expiry: now.getTime() + ttl
+    }
+    localStorage.setItem(key, JSON.stringify(item));
   }
 
 }
