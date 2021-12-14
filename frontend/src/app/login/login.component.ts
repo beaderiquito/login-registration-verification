@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string = "";
+  email: string = "";
   password: string = "";
   errorMessage:string = "Invalid Credentials";
   successMessage:string = "";
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     console.log("clicked");
-    this.authservice.login(this.username, this.password).subscribe((result) => {
+    this.authservice.login(this.email, this.password).subscribe((result) => {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = "Login Successful";

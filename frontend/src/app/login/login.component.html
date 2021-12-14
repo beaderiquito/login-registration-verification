@@ -1,5 +1,5 @@
-<form id="login" method="get" action="login.php">
-  <input [(ngModel)]="username" type="text" name="username" id="username" placeholder="Username">
+<form id="login" method="post">
+  <input [(ngModel)]="email" type="text" name="email" id="email" placeholder="Email Address">
   <input [(ngModel)]="password"type="Password" name="password" id="password" placeholder="Password">
   <input type="submit" name="login" id="login" value="Log In" (click)=handleLogin()>
   <!--<br><br><input type="checkbox" id="check">
